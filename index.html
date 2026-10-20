@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio 34 Unisex Salon | Orlando, FL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f0f0f;
+            --secondary: #1a1a1a;
+            --accent: #c17f59;
+            --accent-light: #e8b896;
+            --accent-shine: #f5d4c0;
+            --cream: #f8f6f3;
+            --white: #ffffff;
+            --light-gray: #f0eeeb;
+            --text-gray: #6b6560;
+            --border: #e0dcd7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--primary);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        .logo span { color: var(--accent); font-style: italic; font-weight: 500; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .call-btn {
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.7rem 1.4rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--accent);
+            transition: all 0.4s ease;
+            white-space: nowrap;
+        }
+        .call-btn:hover {
+            background: var(--primary);
+            color: var(--accent);
+            border-color: var(--primary);
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 0.3rem;
+        }
+
+        /* HERO SLIDER */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            background: var(--primary);
+        }
+        .slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        .slide.active { opacity: 1; visibility: visible; }
+        .slide-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            background-color: #1a1512;
+        }
+        .slide-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(15,15,15,0.94) 0%, rgba(15,15,15,0.7) 50%, rgba(15,15,15,0.4) 100%);
+        }
+        .slide-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .slide-content { color: var(--white); max-width: 520px; }
+        .slide-tag {
+            display: inline-block;
+            color: var(--accent-light);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            padding-left: 45px;
+            position: relative;
+            white-space: nowrap;
+        }
+        .slide-tag::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 50%;
+            width: 30px; height: 1px;
+            background: var(--accent);
+        }
+        .slide h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            line-height: 1.1;
+        }
+        .slide p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .slide-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-bottom: 1.8rem;
+        }
+        .slide-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.95rem 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            border: 2px solid var(--accent);
+            white-space: nowrap;
+        }
+        .slide-cta:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+        .slide-cta svg {
+            width: 14px; height: 14px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+        .slide-image {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide-image img {
+            width: 100%;
+            max-width: 380px;
+            height: 460px;
+            object-fit: cover;
+            border: 6px solid rgba(193,127,89,0.25);
+            display: block;
+            background: #2a2018;
+        }
+
+        /* Slider controls */
+        .slider-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 10;
+            background: rgba(15,15,15,0.6);
+            padding: 0.6rem 1.5rem;
+            backdrop-filter: blur(4px);
+        }
+        .slider-dots { display: flex; gap: 10px; }
+        .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: none;
+            padding: 0;
+        }
+        .dot.active { background: var(--accent); transform: scale(1.3); }
+        .slider-progress {
+            width: 80px; height: 2px;
+            background: rgba(255,255,255,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .slider-progress-bar {
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        .slide-counter {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+        .slide-counter span { color: var(--accent-light); font-size: 0.9rem; }
+
+        /* MARQUEE */
+        .marquee-section {
+            background: var(--primary);
+            padding: 1.2rem 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(193,127,89,0.15);
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-item {
+            color: var(--accent-shine);
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            white-space: nowrap;
+            padding: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            text-shadow: 0 0 20px rgba(193,127,89,0.3);
+        }
+        .marquee-item::after {
+            content: '✦';
+            color: var(--accent);
+            font-size: 0.6rem;
+            text-shadow: 0 0 10px rgba(193,127,89,0.5);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 5rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-label {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+        .about h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .about-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            white-space: nowrap;
+            justify-content: center;
+        }
+        .stars {
+            color: var(--accent);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            flex-shrink: 0;
+        }
+        .rating-text {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+        .about p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            max-width: 580px;
+            margin: 0 auto;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+        .about-divider {
+            width: 40px; height: 1px;
+            background: var(--accent);
+            margin: 2rem auto 0;
+        }
+
+        /* SERVICES */
+        .services {
+            background: var(--cream);
+            padding: 5rem 1.5rem;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 550px;
+            margin: 0 auto 3rem;
+        }
+        .section-label {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        .section-header h2 {
+            font-size: 2.4rem;
+            margin-bottom: 0.6rem;
+        }
+        .section-header p {
+            color: var(--text-gray);
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 1px solid var(--border);
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+        .service-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #e8e4df 0%, #d4cfc8 100%);
+        }
+        .service-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            display: block;
+        }
+        .service-card:hover .service-image img { transform: scale(1.06); }
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(15,15,15,0.35) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .service-card:hover .service-image::after { opacity: 1; }
+        .service-badge {
+            position: absolute;
+            top: 1rem; left: 1rem;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.35rem 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 2;
+            white-space: nowrap;
+        }
+        .service-info { padding: 1.4rem; }
+        .service-category {
+            color: var(--accent);
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.4rem;
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border);
+            gap: 0.5rem;
+        }
+        .service-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        .service-btn {
+            background: none;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.1rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .service-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 5rem 1.5rem;
+            background: var(--white);
+        }
+        .features-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .feature-item {
+            text-align: center;
+            padding: 1.8rem 1.2rem;
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+        }
+        .feature-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        .feature-icon {
+            width: 50px; height: 50px;
+            margin: 0 auto 1.2rem;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+        .feature-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .feature-item p {
+            color: var(--text-gray);
+            font-size: 0.78rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* TESTIMONIAL */
+        .testimonial {
+            background: var(--primary);
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+        .testimonial-inner { max-width: 650px; margin: 0 auto; }
+        .testimonial-label {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .testimonial blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--accent-shine);
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            text-shadow: 0 0 30px rgba(193,127,89,0.15);
+        }
+        .testimonial-author {
+            color: var(--accent-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--cream);
+            padding: 5rem 1.5rem;
+        }
+        .contact-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .contact-info h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+        .contact-info > p {
+            color: var(--text-gray);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+        }
+        .contact-detail-icon {
+            width: 44px; height: 44px;
+            border: 1px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            color: var(--accent);
+        }
+        .contact-detail-text h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 0.2rem;
+        }
+        .contact-detail-text p,
+        .contact-detail-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .contact-detail-text a:hover { color: var(--accent); }
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.85rem;
+        }
+        .hours-list .day { color: var(--text-gray); font-weight: 400; }
+        .hours-list .time { font-weight: 500; white-space: nowrap; }
+        .contact-card-panel {
+            background: var(--white);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+        }
+        .contact-card-panel h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+        }
+        .contact-card-panel > p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-bottom: 1.8rem;
+            font-weight: 300;
+        }
+        .big-cta {
+            display: block;
+            width: 100%;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            padding: 1.1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            border: 2px solid var(--accent);
+            transition: all 0.4s ease;
+            margin-bottom: 0.8rem;
+            white-space: nowrap;
+        }
+        .big-cta:hover {
+            background: var(--primary);
+            color: var(--accent);
+            border-color: var(--primary);
+        }
+        .big-cta-outline {
+            display: block;
+            width: 100%;
+            background: transparent;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 1.1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            border: 2px solid var(--primary);
+            transition: all 0.4s ease;
+            white-space: nowrap;
+        }
+        .big-cta-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.35);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        footer span { color: var(--accent); }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .slide-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            .slide-content { margin: 0 auto; max-width: 500px; }
+            .slide-image { display: none; }
+            .slide h2 { font-size: 2.2rem; }
+            .slide-tag { padding-left: 0; }
+            .slide-tag::before { display: none; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-links a:not(.call-btn) { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero-slider { height: 500px; }
+            .slide h2 { font-size: 1.7rem; }
+            .slide p { font-size: 0.85rem; }
+            .slide-price { font-size: 1.4rem; }
+            .slide-cta { padding: 0.8rem 1.6rem; font-size: 0.7rem; }
+            .slider-controls { gap: 1rem; padding: 0.5rem 1rem; }
+            .slider-progress { width: 50px; }
+            .about { padding: 3rem 1.2rem; }
+            .about h2, .section-header h2, .contact-info h2 { font-size: 1.8rem; }
+            .services { padding: 3rem 1.2rem; }
+            .services-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+            .service-image { height: 280px; }
+            .features { padding: 3rem 1.2rem; }
+            .features-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .feature-item { padding: 1.5rem 1rem; }
+            .testimonial { padding: 3rem 1.2rem; }
+            .testimonial blockquote { font-size: 1.3rem; }
+            .contact { padding: 3rem 1.2rem; }
+            .contact-card-panel { padding: 1.8rem; }
+            .contact-detail { gap: 0.8rem; }
+            .contact-detail-icon { width: 38px; height: 38px; font-size: 0.9rem; }
+            .marquee-item { font-size: 0.8rem; padding: 0 1.5rem; gap: 1.5rem; }
+            .about-rating { white-space: nowrap; }
+            .stars { font-size: 0.9rem; }
+            .rating-text { font-size: 0.75rem; }
+        }
+        @media (max-width: 380px) {
+            .logo { font-size: 1.1rem; }
+            .call-btn { padding: 0.5rem 1rem; font-size: 0.6rem; }
+            .slide h2 { font-size: 1.4rem; }
+            .about h2, .section-header h2, .contact-info h2 { font-size: 1.5rem; }
+            .service-footer { flex-wrap: wrap; }
+            .service-btn { width: 100%; text-align: center; margin-top: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">Studio <span>34</span> Unisex Salon</div>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:3213189456" class="call-btn">Call Now</a>
+            </nav>
+            <button class="mobile-menu-btn">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- HERO SLIDER -->
+    <section class="hero-slider" id="heroSlider">
+        <!-- Slide 1: Lace Frontals -->
+        <div class="slide active">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1599351431202-6e0c051f1d44?w=1400&q=80');"></div>
+            <div class="slide-inner">
+                <div class="slide-content">
+                    <div class="slide-tag">Most Popular</div>
+                    <h2>Lace Frontals & Wigs</h2>
+                    <p>Flawless lace installations and custom wig services. Natural hairlines, secure fit, and styles that turn heads.</p>
+                    <div class="slide-price">Walk-Ins Welcome</div>
+                    <a href="tel:3213189456" class="slide-cta">
+                        Call Now
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80" alt="Lace Frontals">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Quick Weaves -->
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1580618864180-f03d2e754c5c?w=1400&q=80');"></div>
+            <div class="slide-inner">
+                <div class="slide-content">
+                    <div class="slide-tag">Trending Now</div>
+                    <h2>Quick Weaves</h2>
+                    <p>Fast, beautiful weave installations by skilled stylists. Perfect for a fresh look without the long salon wait.</p>
+                    <div class="slide-price">By Appointment</div>
+                    <a href="tel:3213189456" class="slide-cta">
+                        Call Now
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Quick Weaves">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Dreadlocks -->
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1605497788044-5a32c95e361c?w=1400&q=80');"></div>
+            <div class="slide-inner">
+                <div class="slide-content">
+                    <div class="slide-tag">Specialty</div>
+                    <h2>Dreadlocks & Locs</h2>
+                    <p>Expert loc styling, maintenance, and retwists. From starter locs to mature styles, we care for your journey.</p>
+                    <div class="slide-price">Walk-Ins Welcome</div>
+                    <a href="tel:3213189456" class="slide-cta">
+                        Call Now
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4e4b58a09b4a?w=600&q=80" alt="Dreadlocks">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Fades & Taper Cuts -->
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=1400&q=80');"></div>
+            <div class="slide-inner">
+                <div class="slide-content">
+                    <div class="slide-tag">Barber Special</div>
+                    <h2>Fades & Taper Cuts</h2>
+                    <p>Sharp, clean cuts for men and women. Our barbers deliver precision fades, tapers, and custom designs.</p>
+                    <div class="slide-price">Walk-Ins Welcome</div>
+                    <a href="tel:3213189456" class="slide-cta">
+                        Call Now
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d7a169?w=600&q=80" alt="Fades">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Natural Hair -->
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1562322140-1baeb625f7be?w=1400&q=80');"></div>
+            <div class="slide-inner">
+                <div class="slide-content">
+                    <div class="slide-tag">Essential Care</div>
+                    <h2>Natural Hair Styling</h2>
+                    <p>Protective styles, blowouts, and treatments that keep your natural hair healthy, strong, and beautiful.</p>
+                    <div class="slide-price">Book Your Style</div>
+                    <a href="tel:3213189456" class="slide-cta">
+                        Call Now
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1596815060406-6c3df6dfbad7?w=600&q=80" alt="Natural Hair">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <div class="slider-dots">
+                <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+                <button class="dot" data-index="1" aria-label="Slide 2"></button>
+                <button class="dot" data-index="2" aria-label="Slide 3"></button>
+                <button class="dot" data-index="3" aria-label="Slide 4"></button>
+                <button class="dot" data-index="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="slider-progress">
+                <div class="slider-progress-bar" id="progressBar"></div>
+            </div>
+            <div class="slide-counter"><span id="currentSlide">01</span> / 05</div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item">Haircuts</div>
+            <div class="marquee-item">Quick Weaves</div>
+            <div class="marquee-item">Dreadlocks</div>
+            <div class="marquee-item">Fades & Tapers</div>
+            <div class="marquee-item">Natural Hair</div>
+            <div class="marquee-item">Wigs</div>
+            <div class="marquee-item">Lace Frontals</div>
+            <div class="marquee-item">Hairstyling</div>
+            <div class="marquee-item">Blow Dry</div>
+            <div class="marquee-item">Eyebrow Shaping</div>
+            <div class="marquee-item">Shampoo & Conditioning</div>
+            <div class="marquee-item">Male Grooming</div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <span class="about-label">About Us</span>
+        <div class="about-rating">
+            <span class="stars">⭐⭐⭐⭐⭐</span>
+            <span class="rating-text">Unisex Hair Salon &middot; Orlando, FL</span>
+        </div>
+        <h2>Orlando's Go-To Unisex Salon</h2>
+        <p>Located on Pine Hills Road in Orlando, Studio 34 Unisex Salon is where style meets skill. Our team of barbers and talented hairdressers specializes in quick weaves, natural hair, dreadlocks, wigs, lace installations, fades, taper fades, and full male grooming services. We welcome families and are committed to providing both traditional and modern hair care experiences.</p>
+        <div class="about-divider"></div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="section-label">What We Offer</span>
+            <h2>Our Services</h2>
+            <p>Professional hair care for men, women, and the whole family. From cuts to color, we do it all.</p>
+        </div>
+        <div class="services-grid">
+            <!-- Card 1: Haircuts -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452813c0f3f2?w=600&q=80" alt="Haircuts">
+                    <span class="service-badge">Popular</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Essential</div>
+                    <h3>Haircuts</h3>
+                    <p>Precision cuts for men, women, and children. All hair types and styles welcome.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Hairstyling -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b068d9ec0a44?w=600&q=80" alt="Hairstyling">
+                    <span class="service-badge">Styling</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Styling</div>
+                    <h3>Hairstyling</h3>
+                    <p>Professional styling for any occasion. From everyday looks to special events.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Blow Dry -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Blow Dry">
+                    <span class="service-badge">Care</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Hair Care</div>
+                    <h3>Blow Dry</h3>
+                    <p>Smooth, voluminous blowouts that leave your hair looking salon-fresh.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Shampoo & Conditioning -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32939?w=600&q=80" alt="Shampoo & Conditioning">
+                    <span class="service-badge">Treatment</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Hair Care</div>
+                    <h3>Shampoo & Conditioning</h3>
+                    <p>Deep cleansing and conditioning treatments for healthy, nourished hair.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Lace Frontals & Wigs -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80" alt="Lace Frontals">
+                    <span class="service-badge">Popular</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Installations</div>
+                    <h3>Lace Frontals & Wigs</h3>
+                    <p>Flawless lace installations with natural hairlines and secure, comfortable fit.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Quick Weaves -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1487412912498-6a5649d96ffb?w=600&q=80" alt="Quick Weaves">
+                    <span class="service-badge">Trending</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Weaves</div>
+                    <h3>Quick Weaves</h3>
+                    <p>Fast, beautiful weave installations perfect for a fresh new look.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7: Dreadlocks -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Dreadlocks">
+                    <span class="service-badge">Specialty</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Locs</div>
+                    <h3>Dreadlocks & Retwists</h3>
+                    <p>Starter locs, maintenance, and retwists by experienced loc specialists.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: Natural Hair -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Natural Hair">
+                    <span class="service-badge">Care</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Styling</div>
+                    <h3>Natural Hair Styling</h3>
+                    <p>Protective styles and treatments that keep your natural hair healthy and beautiful.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9: Male Grooming -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80" alt="Male Grooming">
+                    <span class="service-badge">Barber</span>
+                </div>
+                <div class="service-info">
+                    <div class="service-category">Men's Services</div>
+                    <h3>Male Grooming</h3>
+                    <p>Full grooming services including fades, tapers, beard trims, and precision cuts.</p>
+                    <div class="service-footer">
+                        <span class="service-price">Call for Price</span>
+                        <a href="tel:3213189456" class="service-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="section-header">
+            <span class="section-label">Why Choose Us</span>
+            <h2>The Studio 34 Difference</h2>
+            <p>Quality service, skilled stylists, and a welcoming atmosphere for the whole family.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">&#9986;</div>
+                <h4>Skilled Barbers & Stylists</h4>
+                <p>Experienced professionals specializing in both modern and traditional styles.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">&#9829;</div>
+                <h4>Family Friendly</h4>
+                <p>We welcome clients of all ages. Bring the whole family for a fresh look.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">&#10003;</div>
+                <h4>Walk-Ins Welcome</h4>
+                <p>No appointment needed for most services. Stop by when it works for you.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">&#9733;</div>
+                <h4>Unisex Services</h4>
+                <p>From fades to weaves, we offer complete hair care for men and women.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial">
+        <div class="testimonial-inner">
+            <span class="testimonial-label">Client Love</span>
+            <blockquote>"Studio 34 is my go-to salon in Orlando. They always take care of my hair, whether it is a quick weave or a fresh fade. The team is professional and the vibe is always welcoming."</blockquote>
+            <div class="testimonial-author">A Loyal Client &middot; Orlando, FL</div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <div class="contact-info">
+                <span class="section-label">Get In Touch</span>
+                <h2>Visit Studio 34 Unisex Salon</h2>
+                <p>Walk-ins are always welcome. Stop by for a fresh cut, style, or installation. We are here to make you look and feel your best.</p>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">&#9873;</div>
+                    <div class="contact-detail-text">
+                        <h4>Location</h4>
+                        <p>34 N Pine Hills Rd<br>Orlando, FL 32811</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">&#9743;</div>
+                    <div class="contact-detail-text">
+                        <h4>Phone</h4>
+                        <a href="tel:3213189456">(321) 318-9456</a>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">&#9851;</div>
+                    <div class="contact-detail-text">
+                        <h4>Hours</h4>
+                        <ul class="hours-list">
+                            <li><span class="day">Monday - Saturday</span><span class="time">Open Daily</span></li>
+                            <li><span class="day">Sunday</span><span class="time">Call to Confirm</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card-panel">
+                <h3>Ready for a Fresh Look?</h3>
+                <p>Call or stop by today. Walk-ins welcome for most services.</p>
+                <a href="tel:3213189456" class="big-cta">Call (321) 318-9456</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=34+N+Pine+Hills+Rd,Orlando,FL+32811" target="_blank" class="big-cta-outline">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 <span>Studio 34 Unisex Salon</span> &middot; 34 N Pine Hills Rd, Orlando, FL 32811 &middot; (321) 318-9456
+    </footer>
+
+    <script>
+        // SLIDER LOGIC
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const progressBar = document.getElementById('progressBar');
+        const currentSlideEl = document.getElementById('currentSlide');
+        let currentSlide = 0;
+        const slideInterval = 6000;
+        let slideTimer;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+            currentSlide = index;
+            currentSlideEl.textContent = String(index + 1).padStart(2, '0');
+            resetProgress();
+        }
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+        function resetProgress() {
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            void progressBar.offsetWidth;
+            progressBar.style.transition = `width ${slideInterval}ms linear`;
+            progressBar.style.width = '100%';
+        }
+        function startSlider() {
+            slideTimer = setInterval(nextSlide, slideInterval);
+            resetProgress();
+        }
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideTimer);
+                showSlide(parseInt(dot.dataset.index));
+                startSlider();
+            });
+        });
+        startSlider();
+
+        // SCROLL ANIMATIONS
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('animate-in');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.service-card, .feature-item, .contact-detail').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.classList.add('delay-' + ((i % 3) + 1));
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
